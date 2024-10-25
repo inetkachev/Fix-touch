@@ -1,0 +1,14 @@
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.AssemblyInfoInputs.cache
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.AssemblyInfo.cs
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\bin\Debug\net8.0\PinchToScroll.exe
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\bin\Debug\net8.0\PinchToScroll.deps.json
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\bin\Debug\net8.0\PinchToScroll.runtimeconfig.json
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\bin\Debug\net8.0\PinchToScroll.dll
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\bin\Debug\net8.0\PinchToScroll.pdb
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.dll
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\refint\PinchToScroll.dll
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.pdb
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\PinchToScroll.genruntimeconfig.cache
+C:\Users\Ivan\VSCode projects\Fix touch\PinchToScroll\obj\Debug\net8.0\ref\PinchToScroll.dll

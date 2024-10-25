@@ -1,7 +1,7 @@
 # Fix Touchpad Scaling Issue: Convert Pinch to Scroll
 
-[![GitHub release](https://img.shields.io/github/v/release/yourusername/yourproject.svg)](https://github.com/yourusername/yourproject/releases)
-[![License](https://img.shields.io/github/license/yourusername/yourproject)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/inetkachev/Fix-touch.svg)](https://github.com/inetkachev/Fix-touch/releases)
+[![License](https://img.shields.io/github/license/inetkachev/Fix-touch)](LICENSE)
 
 **Fix Touchpad Scaling Issue** is a lightweight utility designed to solve a common problem with some Windows touchpads that mistakenly send pinch-to-zoom events instead of scroll events. This tool intercepts pinch gestures and converts them into smooth scroll actions, improving user experience for those with glitchy touchpads.
 

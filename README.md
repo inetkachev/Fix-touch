@@ -16,14 +16,16 @@
 
 Many Windows touchpad users face issues where touchpad gestures meant for scrolling are incorrectly interpreted as pinch-to-zoom gestures, leading to frustrating zooming instead of scrolling. This utility is designed to solve this problem by blocking pinch gestures and replacing them with smooth scroll actions.
 
+## ATTENTION
+
+It will destroy CTRL+MouseWheel ZOOM at all. 
+
 ## Installation
 
 ### 1. Download the Latest Release
 
-Head to the [releases page](https://github.com/yourusername/yourproject/releases) and download the latest version of **Fix Touchpad Scaling Issue**.
+Head to the [releases page](https://github.com/inetkachev/Fix-touch/releases) and download the latest version of **Fix Touchpad Scaling Issue**.
 
-Choose from:
-- **Self-contained version** (no .NET runtime required)
 - **Framework-dependent version** (requires .NET runtime installed)
 
 ### 2. Run the Program
@@ -31,6 +33,8 @@ Choose from:
 Once downloaded, unzip the archive and run the `.exe` file. The program will start in the background and automatically block pinch-to-zoom events on your touchpad.
 
 No installation or configuration is needed. To stop the program, simply close it from the task manager.
+
+For autorun make shortcut and put it to shell:startup (it's folder)
 
 ## Requirements
 

@@ -28,14 +28,18 @@ class Program
 
     private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
     {
-        // Проверяем состояние клавиши Ctrl и блокируем событие, если Ctrl зажат
-        if (nCode >= 0 && (GetKeyState(VK_CONTROL) & 0x8000) != 0)
+        const int WM_MOUSEWHEEL = 0x020A;
+
+        // Проверяем состояние клавиши Ctrl и прокрутку колесика мыши
+        if (nCode >= 0 && (GetKeyState(VK_CONTROL) & 0x8000) != 0 && wParam.ToInt32() == WM_MOUSEWHEEL)
         {
             return (IntPtr)1; // Блокируем событие
         }
-        // Если Ctrl не зажат, передаем событие дальше
+
+        // Если Ctrl не зажат или это не событие колесика мыши, передаем событие дальше
         return CallNextHookEx(_hookID, nCode, wParam, lParam);
     }
+
 
     [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
     private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc lpfn, IntPtr hMod, uint dwThreadId);

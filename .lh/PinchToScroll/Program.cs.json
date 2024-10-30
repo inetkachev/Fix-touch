@@ -1,0 +1,18 @@
+{
+    "sourceFile": "PinchToScroll/Program.cs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1730271627774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1730271627774,
+            "name": "Commit-0",
+            "content": "using System;\r\nusing System.Diagnostics;\r\nusing System.Runtime.InteropServices;\r\n\r\nclass Program\r\n{\r\n    private static LowLevelMouseProc _proc = HookCallback;\r\n    private static IntPtr _hookID = IntPtr.Zero;\r\n\r\n    public static void Main()\r\n    {\r\n        _hookID = SetHook(_proc); // Устанавливаем хук\r\n        Application.Run(); // Запускаем цикл обработки сообщений в фоне\r\n        UnhookWindowsHookEx(_hookID); // Отменяем хук при завершении программы\r\n    }\r\n\r\n    private static IntPtr SetHook(LowLevelMouseProc proc)\r\n    {\r\n        using (Process curProcess = Process.GetCurrentProcess())\r\n        using (ProcessModule curModule = curProcess.MainModule)\r\n        {\r\n            // Устанавливаем глобальный хук для перехвата событий мыши\r\n            return SetWindowsHookEx(WH_MOUSE_LL, proc, GetModuleHandle(curModule.ModuleName), 0);\r\n        }\r\n    }\r\n\r\n    private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);\r\n\r\n    private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)\r\n    {\r\n        const int WM_MOUSEWHEEL = 0x020A;\r\n\r\n        // Проверяем состояние клавиши Ctrl и прокрутку колесика мыши\r\n        if (nCode >= 0 && (GetKeyState(VK_CONTROL) & 0x8000) != 0 && wParam.ToInt32() == WM_MOUSEWHEEL)\r\n        {\r\n            return (IntPtr)1; // Блокируем событие\r\n        }\r\n\r\n        // Если Ctrl не зажат или это не событие колесика мыши, передаем событие дальше\r\n        return CallNextHookEx(_hookID, nCode, wParam, lParam);\r\n    }\r\n\r\n\r\n    [DllImport(\"user32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\r\n    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc lpfn, IntPtr hMod, uint dwThreadId);\r\n\r\n    [DllImport(\"user32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\r\n    [return: MarshalAs(UnmanagedType.Bool)]\r\n    private static extern bool UnhookWindowsHookEx(IntPtr hhk);\r\n\r\n    [DllImport(\"user32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\r\n    private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);\r\n\r\n    [DllImport(\"kernel32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\r\n    private static extern IntPtr GetModuleHandle(string lpModuleName);\r\n\r\n    [DllImport(\"user32.dll\", CharSet = CharSet.Auto, SetLastError = true)]\r\n    private static extern short GetKeyState(int nVirtKey);\r\n\r\n    private const int WH_MOUSE_LL = 14;\r\n    private const int VK_CONTROL = 0x11;\r\n}\r\n"
+        }
+    ]
+}
